@@ -12,7 +12,7 @@ class Bottles
    end
   end
 
-  def verses(number, number_2)
-    "8 bottles of beer on the wall, 8 bottles of beer.\nTake one down and pass it around, 7 bottles of beer on the wall.\n\n7 bottles of beer on the wall, 7 bottles of beer.\nTake one down and pass it around, 6 bottles of beer on the wall.\n\n6 bottles of beer on the wall, 6 bottles of beer.\nTake one down and pass it around, 5 bottles of beer on the wall.\n\n"
+  def verses(first_bottle, last_bottle)
+    first_bottle.downto(last_bottle).map { |num| verse(num) }.join("\n") + "\n"
   end
 end
