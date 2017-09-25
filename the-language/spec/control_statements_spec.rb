@@ -6,7 +6,7 @@ RSpec.describe "Control statements in ruby" do
     else
       result = :false_value
     end
-    expect( result ).to eq( __ )
+    expect( result ).to eq( :true_value )
   end
 
   it "has if then statements" do
@@ -14,7 +14,7 @@ RSpec.describe "Control statements in ruby" do
     if true
       result = :true_value
     end
-    expect( result ).to eq( __ )
+    expect( result ).to eq( :true_value )
   end
 
   it "returns a value from an if statement" do
@@ -23,14 +23,14 @@ RSpec.describe "Control statements in ruby" do
             else
               :false_value
             end
-    expect( value ).to eq( __ )
+    expect( value ).to eq( :true_value )
 
     value = if false
               :true_value
             else
               :false_value
             end
-    expect( value ).to eq( __ )
+    expect( value ).to eq( :false_value )
 
     # NOTE: Actually, EVERY statement in Ruby will return a value, not
     # just if statements.
@@ -40,7 +40,7 @@ RSpec.describe "Control statements in ruby" do
     value = if false
               :true_value
             end
-    expect( value ).to eq( __ )
+    expect( value ).to eq( nil )
   end
 
   it "has a condition (ternary) operator" do
