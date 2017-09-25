@@ -1,5 +1,4 @@
 class Bottles
-<<<<<<< HEAD
 
   def verse(number)
     if number > 2
@@ -20,7 +19,4 @@ class Bottles
   def sing
     verses(99, 0)
   end
-
-=======
->>>>>>> 9b1f3b1cab53a8b06f0c66d7d3e7d99338952b9f
 end
