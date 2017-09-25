@@ -2,9 +2,9 @@ class Bottles
 
   def verse(number)
     if number > 2
-      "#{number} bottles of beer on the wall, #{number} bottles of beer.\nTake one down and pass it around, #{number-1} bottles of beer on the wall.\n"
+      "#{number} bottles of beer on the wall, #{number} bottles of beer.\nTake one down and pass it around, #{number - 1} bottles of beer on the wall.\n"
     elsif number == 2
-      "#{number} bottles of beer on the wall, #{number} bottles of beer.\nTake one down and pass it around, #{number-1} bottle of beer on the wall.\n"
+      "#{number} bottles of beer on the wall, #{number} bottles of beer.\nTake one down and pass it around, #{number - 1} bottle of beer on the wall.\n"
     elsif number == 1
       "#{number} bottle of beer on the wall, #{number} bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall.\n"
     else
@@ -15,4 +15,9 @@ class Bottles
   def verses(first_bottle, last_bottle)
     first_bottle.downto(last_bottle).map { |num| verse(num) }.join("\n") + "\n"
   end
+
+  def sing
+    verses(99, 0)
+  end
+
 end
