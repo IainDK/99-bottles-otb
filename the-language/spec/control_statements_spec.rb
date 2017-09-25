@@ -46,18 +46,18 @@ RSpec.describe "Control statements in ruby" do
   it "has a condition (ternary) operator" do
     expect(
       true ? :true_value : :false_value
-    ).to eq( __ )
+    ).to eq( :true_value )
 
     expect(
       false ? :true_value : :false_value
-    ).to eq( __ )
+    ).to eq( :false_value )
   end
 
   it "can use an if as a statement modifier" do
     result = :default_value
     result = :true_value if true
 
-    expect( result ).to eq( __ )
+    expect( result ).to eq( :true_value )
   end
 
   it "has an unless statement" do
@@ -65,20 +65,20 @@ RSpec.describe "Control statements in ruby" do
     unless false    # same as saying 'if !false', which evaluates as 'if true'
       result = :false_value
     end
-    expect( result ).to eq( __ )
+    expect( result ).to eq( :false_value )
 
     result = :default_value
     unless true    # same as saying 'if !true', which evaluates as 'if false'
       result = :true_value
     end
-    expect( result ).to eq( __ )
+    expect( result ).to eq( :default_value )
   end
 
   it "can use unless as a statement modifier" do
     result = :default_value
     result = :false_value unless false
 
-    expect( result ).to eq( __ )
+    expect( result ).to eq( :false_value )
   end
 
   it "has a while statment" do
@@ -88,7 +88,7 @@ RSpec.describe "Control statements in ruby" do
       result = result * i
       i += 1
     end
-    expect( result ).to eq( __ )
+    expect( result ).to eq( 3628800 )
   end
 
   it "has a break statement" do
@@ -99,7 +99,7 @@ RSpec.describe "Control statements in ruby" do
       result = result * i
       i += 1
     end
-    expect( result ).to eq( __ )
+    expect( result ).to eq( 3628800 )
   end
 
   it "can return a value with break" do
@@ -109,7 +109,7 @@ RSpec.describe "Control statements in ruby" do
       i += 1
     end
 
-    expect( result ).to eq( __ )
+    expect( result ).to eq( 2 )
   end
 
   it "can skip on using next" do
@@ -120,7 +120,7 @@ RSpec.describe "Control statements in ruby" do
       next if (i % 2) == 0
       result << i
     end
-    expect( result ).to eq( __ )
+    expect( result ).to eq( [1, 3, 5, 7, 9] )
   end
 
   it "has a for statement" do
@@ -129,7 +129,7 @@ RSpec.describe "Control statements in ruby" do
     for item in array
       result << item.upcase
     end
-    expect( result ).to eq( [__, __, __] )
+    expect( result ).to eq( ["FISH", "AND", "CHIPS"] )
   end
 
   it "has a times statement" do
@@ -137,7 +137,7 @@ RSpec.describe "Control statements in ruby" do
     10.times do
       sum += 1
     end
-    expect( sum ).to eq( __ )
+    expect( sum ).to eq( 10 )
   end
 
 end
