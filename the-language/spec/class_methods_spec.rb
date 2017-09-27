@@ -17,11 +17,12 @@ RSpec.describe "Class methods" do
 
   it "has methods on objects" do
     fido = Dog.new
-    expect( fido.methods.size > 0 ).to eq( true )
+    expect( fido.methods.size > 1 ).to eq( true )
   end
 
   it "has methods on classes" do
-    expect( Dog.methods.size > 0).to eq( true )
+    expect( Dog.methods.size > 1 ).to eq( true )
+    expect( fido.methods.size > 0 ).to eq( true )
   end
 
   it "is possible to define a method on an individual object" do
@@ -39,10 +40,6 @@ RSpec.describe "Class methods" do
   #     :fidos_wag
   #   end
   #
-  #   expect {
-  #     rover.wag
-  #   }.to raise_error( NoMethodError )
-  # end
 
   class Dog2
     def wag
@@ -77,6 +74,7 @@ RSpec.describe "Class methods" do
     fido.name = "Fido"
     expect( fido.name ).to eq( "Fido")
     expect( Dog.name ).to eq( nil )
+
   end
 
   class Dog

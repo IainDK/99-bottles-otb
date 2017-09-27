@@ -16,12 +16,12 @@ RSpec.describe "Ruby Arrays" do
     expect( array ).to eq( [1, 2] )
 
     array << 333
-    expect( array ).to eq( [1, 2, 333])
   end
 
   it "provides the subscript operator for accessing elements" do
     array = ["New York", "Paris", "London", "Milan"]
 
+    expect( array[0] ).to eq( "New York" )
     expect( array[0] ).to eq( "New York")
     expect( array[3] ).to eq( "Milan" )
 
@@ -50,6 +50,7 @@ RSpec.describe "Ruby Arrays" do
   end
 
   it "is similar to a range" do
+    expect( (1..5).class ).to eq( Range )
     expect( (1..5).class ).to eq(Range)
     expect( [1,2,3,4,5] ).not_to eq( (1..5) )
     expect( [1,2,3,4,5] ).to eq( (1..5).to_a )
@@ -59,6 +60,11 @@ RSpec.describe "Ruby Arrays" do
   it "can be sliced by a range" do
     array = ["New York", "Paris", "London", "Milan"]
 
+
+    expect( ["New York", "Paris", "London"] ).to eq array[0..2]
+    expect( ["New York", "Paris"] ).to eq array[0...2]
+    expect( ["London", "Milan"] ).to eq array[2..-1]
+    expect( [] ).to eq array[-2..1]
     expect( array.slice(0, 3) ).to eq array[0..2]
     expect( array.slice(0, 2) ).to eq array[0...2]
     expect( array.slice(2, 3) ).to eq array[2..-1]
@@ -70,11 +76,11 @@ RSpec.describe "Ruby Arrays" do
 
     array.push("on the end")
 
-    expect( array ).to eq( [1, 2, "on the end"] )
-
+    expect( array ).to eq( [1,2,"on the end"] )
     value = array.pop
     expect( value ).to eq( "on the end" )
-    expect( array ).to eq( [1, 2] )
+    expect( array ).to eq( [1,2] )
+    expect( array ).to eq( [1, 2, "on the end"] )
   end
 
   it "can be used as a queue" do
@@ -82,13 +88,14 @@ RSpec.describe "Ruby Arrays" do
     array.push(:third)
 
     value = array.shift
+    expect( value ).to eq( :first )
+    expect( array ).to eq( [:second, :third] )
     expect( value ).to eq(:first )
     expect( array ).to eq([:second, :third])
 
     # Sometimes you need to get things to the front of a queue
     array.unshift(value)
-
-    expect( array ).to eq( [:first, :second, :third])
+    expect( array ).to eq( [:first, :second, :third] )
   end
 
 end

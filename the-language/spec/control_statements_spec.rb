@@ -88,6 +88,7 @@ RSpec.describe "Control statements in ruby" do
       result = result * i
       i += 1
     end
+
     expect( result ).to eq( 3628800 )
   end
 
@@ -99,6 +100,7 @@ RSpec.describe "Control statements in ruby" do
       result = result * i
       i += 1
     end
+
     expect( result ).to eq( 3628800 )
   end
 
@@ -120,6 +122,7 @@ RSpec.describe "Control statements in ruby" do
       next if (i % 2) == 0
       result << i
     end
+
     expect( result ).to eq( [1, 3, 5, 7, 9] )
   end
 
@@ -129,6 +132,7 @@ RSpec.describe "Control statements in ruby" do
     for item in array
       result << item.upcase
     end
+
     expect( result ).to eq( ["FISH", "AND", "CHIPS"] )
   end
 

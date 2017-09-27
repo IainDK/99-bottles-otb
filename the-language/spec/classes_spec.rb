@@ -29,6 +29,7 @@ RSpec.describe "ruby classes" do
     expect {
       eval "fido.@name"
       # NOTE: Using eval because the above line is a syntax error.
+
     }.to raise_error( SyntaxError )
   end
 

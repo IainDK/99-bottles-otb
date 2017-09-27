@@ -14,6 +14,7 @@ class Bottles
 
   def verses(first_bottle, last_bottle)
     first_bottle.downto(last_bottle).map { |num| verse(num) }.join("\n") + "\n"
+
   end
 
   def sing
