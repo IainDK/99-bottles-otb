@@ -9,7 +9,6 @@ RSpec.describe "methods in ruby" do
 
   it "is possible to call a method without parens" do
     expect( a_global_method 4, 8 ).to eq( 12 )
-  end
 
   it "is sometimes ambiguous to leave out parens" do
     # We have used a string and eval here because the code below causes
@@ -30,7 +29,7 @@ RSpec.describe "methods in ruby" do
   it "is not possible to call methods with the wrong number of arguments" do
     expect { a_global_method }.to raise_error( ArgumentError, /wrong number of arguments/ ) # HINT: Fill in the error and part of the message
 
-    expect { a_global_method(1,2,3) }.to raise_error( ArgumentError, /wrong number of arguments/ ) # HINT: Fill in the error and part of the message
+    expect { a_global_method(1,2,3) }.to raise_error( ArgumentError, /wrong number of arguments/ ) # HINT: Fill in the error and part of the messages-passing-test-two
   end
 
   def a_method_with_defaults(a, b = :default_value)

@@ -26,6 +26,7 @@ RSpec.describe "exceptions" do
     expect( RuntimeError.ancestors.include?(StandardError) ).to be(true),
       "RuntimeError is a subclass of StandardError"
 
+
     expect( ex.message ).to eq( "Oops" )
   end
 

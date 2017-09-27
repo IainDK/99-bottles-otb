@@ -29,7 +29,8 @@ RSpec.describe "ruby classes" do
     expect {
       eval "fido.@name"
       # NOTE: Using eval because the above line is a syntax error.
-    }.to raise_error( SyntaxError)
+
+    }.to raise_error( SyntaxError )
   end
 
   it "is possible to ask for an instance variable, politely" do
@@ -155,7 +156,7 @@ RSpec.describe "ruby classes" do
 
   it "uses inspect to provide a string description of the object" do
     fido = Dog7.new("Fido")
-    expect( fido.inspect ).to eq( "<Dog named 'Fido'>" )
+    expect( fido.inspect ).to eq( "<Dog named 'Fido'>")
   end
 
   it "has to_s and inspect on all objects" do

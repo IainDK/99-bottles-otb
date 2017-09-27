@@ -1,5 +1,3 @@
-# Implement a DiceSet Class here:
-
 class DiceSet
   attr_reader :values
 
@@ -12,7 +10,6 @@ class DiceSet
     n.times { values << rand(1..6) }
   end
 end
-
 
 RSpec.describe "dice set" do
   it "can create a new sice set" do

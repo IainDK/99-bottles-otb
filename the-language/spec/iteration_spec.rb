@@ -53,7 +53,6 @@ RSpec.describe "iterating in ruby" do
 
   it "can `find` the first matching element" do
     array = ["Jim", "Bill", "Clarence", "Doug", "Eli"]
-
     expect( array.find { |item| item.size > 4 } ).to eq( "Clarence" )
   end
 

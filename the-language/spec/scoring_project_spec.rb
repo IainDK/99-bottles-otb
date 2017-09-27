@@ -30,17 +30,14 @@ RSpec.describe "scoring a game of greed" do
   end
 
   it "scores a single 5 as 50" do
-
     expect( score([5]) ).to eq( 50 )
   end
 
   it "scores a single 1 as 100" do
-
     expect( score([1]) ).to eq( 100 )
   end
 
   it "scores multiple 1s and 5s as a sum of the individual scores" do
-
     expect( score([1,5,5,1]) ).to eq( 300 )
   end
 
@@ -69,6 +66,7 @@ RSpec.describe "scoring a game of greed" do
   end
 
 end
+
 
 # def triple_bonus(dice)
 #   triple = dice.select { |die| dice.count(die) > 2 }

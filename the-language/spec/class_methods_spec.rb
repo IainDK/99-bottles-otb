@@ -22,6 +22,7 @@ RSpec.describe "Class methods" do
 
   it "has methods on classes" do
     expect( Dog.methods.size > 1 ).to eq( true )
+    expect( fido.methods.size > 0 ).to eq( true )
   end
 
   it "is possible to define a method on an individual object" do
@@ -31,7 +32,7 @@ RSpec.describe "Class methods" do
     end
     expect( fido.wag ).to eq( :fidos_wag )
   end
-  #
+
   # it "does not affect other objects with singleton methods" do
   #   fido = Dog.new
   #   rover = Dog.new
@@ -39,10 +40,6 @@ RSpec.describe "Class methods" do
   #     :fidos_wag
   #   end
   #
-  # #   expect {
-  # #     rover.wag
-  # #   }.to raise_error( NoMethodError )
-  # # end
 
   class Dog2
     def wag
@@ -75,8 +72,9 @@ RSpec.describe "Class methods" do
   it "does not share instance variables between classes and instances" do
     fido = Dog.new
     fido.name = "Fido"
-    expect( fido.name ).to eq( "Fido" )
-    expect( Dog.name ).to eq( @name )
+    expect( fido.name ).to eq( "Fido")
+    expect( Dog.name ).to eq( nil )
+
   end
 
   class Dog
@@ -124,7 +122,7 @@ RSpec.describe "Class methods" do
   end
 
   it "has a third way to define a class method" do
-    expect( Dog.another_class_method ).to eq( :still_another_way)
+    expect( Dog.another_class_method ).to eq( :still_another_way )
   end
 
   # THINK ABOUT IT:

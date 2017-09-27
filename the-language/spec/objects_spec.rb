@@ -39,7 +39,6 @@ RSpec.describe "Objects in ruby" do
   it "can be cloned to create a new object" do
     obj = Object.new
     copy = obj.clone
-
     expect( obj != copy ).to eq( true )
     expect( obj.object_id != copy.object_id ).to eq( true )
   end

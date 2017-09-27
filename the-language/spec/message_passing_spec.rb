@@ -8,19 +8,16 @@ RSpec.describe "message passing" do
 
   it "can call methods directly" do
     mc = MessageCatcher.new
-
     expect( mc.caught? ).to eq( true )
   end
 
   it "can invoke a method with send" do
     mc = MessageCatcher.new
-
     expect( mc.send(:caught?) ).to eq( true )
   end
 
   it "can invoke methods more dynamically" do
     mc = MessageCatcher.new
-
     expect( mc.send("caught?") ).to eq( true )
     expect( mc.send("caught" + "?") ).to eq( true )    # What do you need to add to the first string?
     expect( mc.send("CAUGHT?".downcase) ).to eq( true )      # What would you need to do to the string?
@@ -28,7 +25,6 @@ RSpec.describe "message passing" do
 
   it "can also use __send__" do
     mc = MessageCatcher.new
-
     expect( mc.__send__(:caught?) ).to eq( true )
 
     # THINK ABOUT IT:
@@ -38,7 +34,6 @@ RSpec.describe "message passing" do
 
   it "can ask an object if it know how to respond" do
     mc = MessageCatcher.new
-
     expect( mc.respond_to?(:caught?) ).to eq( true )
     expect( mc.respond_to?(:does_not_exist) ).to eq( false )
   end
@@ -51,7 +46,6 @@ RSpec.describe "message passing" do
 
   it "can send a message with arguments" do
     mc = MessageCatcher.new
-
     expect( mc.add_a_payload ).to eq( [] )
     expect( mc.send(:add_a_payload) ).to eq( [] )
 
@@ -71,13 +65,11 @@ RSpec.describe "message passing" do
 
   it "raises an error if you send undefined messages" do
     typical = TypicalObject.new
-
     expect { typical.foobar }.to raise_error( NoMethodError, // )
   end
 
   it "raises the NoMethodError by calling method_missing" do
     typical = TypicalObject.new
-
     expect( typical.respond_to?(:method_missing, true) ).to eq( true )
     expect { typical.send(:method_missing) }.to raise_error( ArgumentError, /no method name given/ )
 
@@ -101,7 +93,6 @@ RSpec.describe "message passing" do
 
   it "catches any message now" do
     catcher = AllMessageCatcher.new
-
     expect( catcher.foobar ).to eq( "Someone called foobar with <>" )
     expect( catcher.foobaz(1) ).to eq( "Someone called foobaz with <1>" )
     expect( catcher.sum(1,2,3,4,5,6) ).to eq( "Someone called sum with <1, 2, 3, 4, 5, 6>" )
@@ -128,7 +119,6 @@ RSpec.describe "message passing" do
 
   it "catches foo_ methods" do
     catcher = WellBehavedFooCatcher.new
-
     expect( catcher.foo_bar ).to eq( "Foo to you too" )
     expect( catcher.foo_baz ).to eq( "Foo to you too" )
   end
@@ -154,7 +144,6 @@ RSpec.describe "message passing" do
 
   it "now tells the truth using an explictly defined #respond_to? method" do
     catcher = WellBehavedFooCatcher.new
-
     expect( catcher.respond_to?(:foo_bar) ).to eq( true )
     expect( catcher.respond_to?(:something_else) ).to eq( false )
   end

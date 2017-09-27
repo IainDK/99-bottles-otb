@@ -58,3 +58,4 @@ RSpec.describe "modules" do
     expect( fido.here ).to eq( :in_object )
   end
 end
+
